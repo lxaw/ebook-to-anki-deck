@@ -1,6 +1,6 @@
 # Book-to-Anki 📚
 
-### What is it? :question:
+### What is it?
 Converts various book files to Anki decks. At the moment it only reads the text and saves it to cards. You could improve this by adding TTS, but I didn't want to have so many files in my Anki.
 
 ### How does it work?
