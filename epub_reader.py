@@ -15,7 +15,7 @@ kDELIM = '。'
 # the shortest allowable size for text
 kLINE_THRESHOLD_SIZE = 10
 # name of new deck
-kDECK_NAME = 'yougishax'
+kDECK_NAME = 'subef'
 # name of card type
 kMODEL_NAME = 'Japanese Card'
 
@@ -24,7 +24,7 @@ def chapter_to_str(chapter):
     text = [para.get_text() for para in soup.find_all('p')]
     return ' '.join(text)
 
-strTestFile = './books/yougishax.epub'
+strTestFile = './books/subef.epub'
 book = epub.read_epub(strTestFile)
 
 items = list(book.get_items_of_type(ebooklib.ITEM_DOCUMENT))
@@ -33,13 +33,14 @@ lines = []
 for i in items:
     chapter_lines = chapter_to_str(i).split(kDELIM)
     for line in chapter_lines:
-        if len(line) >= kLINE_THRESHOLD_SIZE:
+        # dont need duplicate sentences
+        if len(line) > 0 and line not in lines:
             lines.append(line)
 
 # make a deck if not present
 #
-# if kDECK_NAME not in invoke('deckNames'):
-# invoke('createDeck',deck=kDECK_NAME)
+if kDECK_NAME not in invoke('deckNames'):
+    invoke('createDeck',deck=kDECK_NAME)
 
 dFields = {
     'Front':'',
@@ -60,10 +61,15 @@ for index,line in enumerate(lines):
     # put in fields
     dFields['Front'] = line
 
+    # allow duplicates, if present
     note = {
         'deckName':kDECK_NAME,
         'modelName':kMODEL_NAME,
         'fields':dFields,
+        'options':{
+            'allowDuplicate':True,
+        }
+
         }
     
 
