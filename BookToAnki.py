@@ -51,18 +51,25 @@ class BookToAnki():
             invoke('createDeck',deck=strOutDeckName)
         
         for line in lines:
-            note = {
-                'deckName':strOutDeckName,
-                'modelName':self.kMODEL_NAME,
-                'fields':{
-                    self.kFRONT_FIELD:line,
-                    self.kBACK_FIELD: '',
-                },
-                'options':{
-                    'allowDuplicate':True,
-                }
-            }
+            self.createNote(line,'',strOutDeckName)
             invoke('addNote',note=note)
+    
+    def createNote(self, strFrontData, strBackData,strDeckName):
+        """
+        Creates a note.
+        """
+        note = {
+            'deckName':strDeckName,
+            'modelName':self.kMODEL_NAME,
+            'fields':{
+                self.kFRONT_FIELD:strFrontData,
+                self.kBACK_FIELD: strBackData,
+            },
+            'options':{
+                'allowDuplicate':True,
+            }
+        }
+        invoke('addNote',note=note)
 
     def makeDeck(self, strSrcFile, strOutDeckName,strDelim = '。')
         """
