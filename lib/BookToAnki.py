@@ -37,6 +37,8 @@ class BookToAnki():
     difficult to program for each card type.
     """
     def __init__(self):
+        # possible extensions
+        self.kPOSSIBLE_EXTENSIONS = ['.txt','.epub','.mobi']
         # the model type cards will be generated to
         self.kMODEL_NAME= "default_bta"
 
@@ -133,8 +135,6 @@ class BookToAnki():
         invoke('createModel',modelName = self.kMODEL_NAME,
         inOrderFields = inOrderFields,cardTemplates=cardTemplates) 
 
-
-    
     def fromTxt(self,strTextPath,strOutDeckName,strDelim = '。'):
         """
         Inputs: path of text file, name of deck to export to, delimiter to parse the text file with
