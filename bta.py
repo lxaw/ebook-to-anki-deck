@@ -10,12 +10,10 @@ def run(listArgs):
         return
     
     bTa = BookToAnki()
-    bTa.createDefaultModel()
-
-    return
 
     strBookFilePath = listArgs[1]
     strAnkiDeckName = listArgs[2]
+
     if len(listArgs) == 4:
         strDelim = listArgs[3]
         try:
