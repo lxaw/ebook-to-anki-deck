@@ -35,7 +35,7 @@ Example 1: epub file
 `python bta.py books/moby.epub "Moby Dick" "."`
 
 Example 2: mobi file
-`python bta.py books/hoshi.epub "hoshi"`
+`python bta.py books/hoshi.mobi "hoshi"`
 ###### NOTE: 
 Here we do not pass a delimiter because we know that the Japanese period is the separator. This will be the same case in the next example as well.
 
