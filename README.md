@@ -45,3 +45,6 @@ Example 2: text file
 
 # Note on speed
 Sometimes it takes a while to make decks. It appears that the actual action of creating a card takes a bit of time, so if more cards are needed, more time should be expected. I have attempted to thread it, but I am not sure if Anki / Anki Connect makes it such that you cannot attempt to create multiple cards at once.
+
+## ❤️ How to Support ❤️
+- If this code or anyother I have written has helped you, feel free to make a donation at https://www.buymeacoffee.com/whalenlexn.
